@@ -1,0 +1,8 @@
+{
+  "name": "GrandmasterStream",
+  "description": "A live-streaming chess platform where you can create rooms, play with friends, and engage with an AI-powered audience.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
