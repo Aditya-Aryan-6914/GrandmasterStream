@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GrandmasterStream - Play chess, create rooms, and stream with AI commentary." />
+    <title>GrandmasterStream</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♛</text></svg>">
+    <script>
+      // Polyfill process for browser environments to prevent crashes
+      window.process = window.process || { env: { API_KEY: '' } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              chess: {
+                dark: '#769656',
+                light: '#eeeed2',
+                bg: '#262421',
+                panel: '#1e1e1e',
+                text: '#c3c3c3',
+                accent: '#81b64c',
+                accentHover: '#a3d160'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #302e2b;
+        color: #c3c3c3;
+        margin: 0;
+        padding: 0;
+      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #262421; }
+      ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #777; }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.2.7"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/GrandmasterStream/assets/index-Ubhgi8Jq.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
