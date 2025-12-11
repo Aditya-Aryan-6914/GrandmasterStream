@@ -7,7 +7,7 @@
     <title>GrandmasterStream</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♛</text></svg>">
     <script>
-      // Polyfill process for browser environments to prevent crashes if not built with env vars
+      // Polyfill process for browser environments to prevent crashes
       window.process = window.process || { env: { API_KEY: '' } };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,32 +39,24 @@
         margin: 0;
         padding: 0;
       }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #262421; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #555; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #777; 
-      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #262421; }
+      ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #777; }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
-    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
-    "react/": "https://esm.sh/react@^19.2.1/",
     "react": "https://esm.sh/react@^19.2.1",
     "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
     "clsx": "https://esm.sh/clsx@^2.1.1",
-    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.2.7"
   }
 }
 </script>

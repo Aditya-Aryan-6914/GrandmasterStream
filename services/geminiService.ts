@@ -4,8 +4,10 @@ import { Piece, PieceColor, PieceType } from '../types';
 let genAI: GoogleGenAI | null = null;
 
 try {
-  if (process.env.API_KEY) {
-    genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Check for API key in process.env (Vite define) or global window object
+  const apiKey = process.env.API_KEY || (window as any).process?.env?.API_KEY;
+  if (apiKey) {
+    genAI = new GoogleGenAI({ apiKey });
   }
 } catch (e) {
   console.error("Failed to initialize Gemini", e);
