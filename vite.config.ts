@@ -6,7 +6,8 @@ export default defineConfig({
   // Sets the base path for assets to match the GitHub Pages repository name
   base: '/GrandmasterStream/', 
   define: {
-    // Prevents "process is not defined" errors in browser if strict mode is on
-    'process.env': process.env
+    // Only include specific environment variables needed by the app
+    // NEVER expose all of process.env as it may contain secrets
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || ''),
   }
 });
