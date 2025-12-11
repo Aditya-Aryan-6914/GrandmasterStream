@@ -5,7 +5,7 @@ import StreamSidebar from '../components/StreamSidebar';
 import { Piece, PieceColor, PieceType, ChatMessage } from '../types';
 import { INITIAL_BOARD_LAYOUT } from '../constants';
 import { generateStreamChat, analyzePosition } from '../services/geminiService';
-import { ArrowLeft, Share2, Sparkles, Trophy } from 'lucide-react';
+import { ArrowLeft, Share2, Sparkles, Trophy, Check } from 'lucide-react';
 
 const GameRoom: React.FC = () => {
   const { roomId } = useParams();
@@ -17,6 +17,7 @@ const GameRoom: React.FC = () => {
   const [viewerCount, setViewerCount] = useState(1204);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Initialize board logic
   useEffect(() => {
@@ -117,6 +118,12 @@ const GameRoom: React.FC = () => {
       setIsAnalyzing(false);
   };
 
+  const copyCode = () => {
+      navigator.clipboard.writeText(roomId || '');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="flex flex-col lg:flex-row h-screen bg-[#302e2b] overflow-hidden">
       {/* Main Game Area */}
@@ -133,11 +140,11 @@ const GameRoom: React.FC = () => {
                 </div>
             </div>
             <div className="flex items-center space-x-3">
-                <button className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm font-medium transition"
-                    onClick={() => navigator.clipboard.writeText(roomId || '')}
+                <button className={`flex items-center space-x-2 px-3 py-1.5 rounded text-sm font-medium transition ${copied ? 'bg-green-600 text-white' : 'bg-gray-800 hover:bg-gray-700 text-gray-200'}`}
+                    onClick={copyCode}
                 >
-                    <Share2 size={16} />
-                    <span>Share Code</span>
+                    {copied ? <Check size={16} /> : <Share2 size={16} />}
+                    <span>{copied ? 'Copied!' : 'Share Code'}</span>
                 </button>
             </div>
         </div>
